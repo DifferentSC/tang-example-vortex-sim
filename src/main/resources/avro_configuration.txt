@@ -1,0 +1,12 @@
+5
+{"Bindings":[{"key":"lee.gy.ExampleMain$ArriveTime","value":"1"},{"key":"lee.gy.ExampleMain$Duration","value":"2"}]}
+{"Bindings":[{"key":"lee.gy.ExampleMain$ArriveTime","value":"2"},{"key":"lee.gy.ExampleMain$Duration","value":"3"}]}
+{"Bindings":[{"key":"lee.gy.ExampleMain$ArriveTime","value":"3"},{"key":"lee.gy.ExampleMain$Duration","value":"4"}]}
+{"Bindings":[{"key":"lee.gy.ExampleMain$ArriveTime","value":"4"},{"key":"lee.gy.ExampleMain$Duration","value":"5"}]}
+{"Bindings":[{"key":"lee.gy.ExampleMain$ArriveTime","value":"5"},{"key":"lee.gy.ExampleMain$Duration","value":"6"}]}
+5
+{"Bindings":[{"key":"lee.gy.ExampleMain$ArriveTime","value":"5"},{"key":"lee.gy.ExampleMain$Duration","value":"6"}]}
+{"Bindings":[{"key":"lee.gy.ExampleMain$ArriveTime","value":"4"},{"key":"lee.gy.ExampleMain$Duration","value":"5"}]}
+{"Bindings":[{"key":"lee.gy.ExampleMain$ArriveTime","value":"3"},{"key":"lee.gy.ExampleMain$Duration","value":"4"}]}
+{"Bindings":[{"key":"lee.gy.ExampleMain$ArriveTime","value":"2"},{"key":"lee.gy.ExampleMain$Duration","value":"3"}]}
+{"Bindings":[{"key":"lee.gy.ExampleMain$ArriveTime","value":"1"},{"key":"lee.gy.ExampleMain$Duration","value":"2"}]}
