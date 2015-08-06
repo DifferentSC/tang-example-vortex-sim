@@ -9,6 +9,7 @@ import org.apache.reef.tang.Tang;
 import org.apache.reef.tang.annotations.Name;
 import org.apache.reef.tang.annotations.NamedParameter;
 import org.apache.reef.tang.exceptions.InjectionException;
+import org.apache.reef.tang.formats.AvroConfigurationSerializer;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -76,6 +77,49 @@ public class ExampleMain {
         cb.bindNamedParameter(Duration.class, duration);
         // Build Configuration
         Configuration conf = cb.build();
+        // Get an object with injector
+        Injector injector = Tang.Factory.getTang().newInjector(conf);
+        Reducer reducer = injector.getInstance(Reducer.class);
+        reducerList.add(reducer);
+      }
+      in.close();
+    } catch (FileNotFoundException e) {
+      System.out.println("File not found!");
+    } catch (IOException e) {
+      System.out.println("IOException occured!");
+    }
+
+    /* Method 2: Creating dummy Mapper & Reducers with avro configuration file  */
+    System.out.println("Using avro configuration file");
+    try {
+      in = new BufferedReader(
+          new FileReader(ExampleMain.class.getResource("/avro_configuration.txt").getPath()));
+      // Read configuration of mappers
+      // Read the number of mappers
+      String line = in.readLine();
+      int numMappers = Integer.parseInt(line);
+      List<Mapper> mapperList = new ArrayList<Mapper>();
+      // Read each mapper configuration
+      for (int i = 0; i < numMappers; i++) {
+        // Read configuration directly
+        String avroConfString = in.readLine();
+        Configuration conf = new AvroConfigurationSerializer().fromString(avroConfString);
+        // Get an object with injector
+        Injector injector = Tang.Factory.getTang().newInjector(conf);
+        Mapper mapper = injector.getInstance(Mapper.class);
+        mapperList.add(mapper);
+      }
+
+      // Read configuration of reducers
+      // Read the number of reducers
+      line = in.readLine();
+      int numReducers = Integer.parseInt(line);
+      List<Reducer> reducerList = new ArrayList<Reducer>();
+      // Read each mapper configuration
+      for (int i = 0; i < numReducers; i++) {
+        // Read configuration directly
+        String avroConfString = in.readLine();
+        Configuration conf = new AvroConfigurationSerializer().fromString(avroConfString);
         // Get an object with injector
         Injector injector = Tang.Factory.getTang().newInjector(conf);
         Reducer reducer = injector.getInstance(Reducer.class);
