@@ -8,5 +8,13 @@
     <artifactId>tang-example-vortex-sim</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.reef</groupId>
+            <artifactId>tang</artifactId>
+            <version>0.12.0-incubating-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
 
 </project>
